@@ -25,14 +25,14 @@ function Column(id, name) {
 				url: baseUrl + '/card',
 				method: 'POST',
 				data: {
-					name: cardName,
-					bootcamp_kanban_column_id: self.id
+				name: cardName,
+				bootcamp_kanban_column_id: self.id
 				},
 				success: function(response) {
-					var card = new card(response.id, cardName);
+					var card = new Card(response.id, cardName);
 					self.createCard(card);
 				}
-			})
+			});
 		});
 			
 			// KONSTRUOWANIE ELEMENTU KOLUMNY
