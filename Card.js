@@ -2,6 +2,7 @@
 function Card(id, name) {
 	var self = this;
 
+	this.id = id; 
 	this.name = name || 'No name given';
 	this.element = createCard();
 
@@ -24,10 +25,10 @@ Card.prototype = {
 	removeCard: function() {
 		var self = this;
 		$.ajax({
-			url: baseUrl + '/card' + self.id,
+			url: baseUrl + '/card/' + self.id,
 			method: 'DELETE',
-			success: function(){
-				self.$element.remove();
+			success: function(response){
+				self.element.remove();
 			}
 		});
 	}
